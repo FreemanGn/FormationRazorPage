@@ -1,0 +1,102 @@
+﻿@page
+@model Formation_Web_ASP.NET_Core.Pages.Restaurant.IndexModel
+@{
+}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- CSS Code: Place this code in the document's head (between the <head> -- </head> tags) -->
+<style>
+table.customTable {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-width: 3px;
+  border-color: #FFF5F9;
+  border-style: solid;
+  color: #000000;
+}
+
+table.customTable td, table.customTable th {
+  border-width: 3px;
+  border-color: #FFF5F9;
+  border-style: solid;
+  padding: 5px;
+}
+
+table.customTable thead {
+  background-color: #C4C4C4;
+}
+ 
+.customButton {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+.customButton:hover {
+        background-color: #3e8e41;
+      }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+
+</style>
+<div>
+<h1>List Of Restaurant</h1>
+
+    <div class="html_button btn-left">
+        <a asp-page="./Add" class="btn customButton large">New Restaurant</a>
+    </div>
+
+</div>
+
+<!-- HTML Code: Place this code in the document's body (between the <body> tags) where the table should appear -->
+<table class="customTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>HDescription</th>
+      <th>Addresse</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(var restaurant in Model.Restaurants)
+        {
+            <tr>
+                <td >@restaurant.Id</td>
+                <td >@restaurant.Name</td>
+                <td >@restaurant.Description</td>
+                <td >@restaurant.Addresse</td>
+                <td>
+                   <a asp-action="Delete">
+                       <span class="material-symbols-outlined">
+                        delete             
+                       </span>
+                   </a>
+                   <a asp-action="Edit">
+                        <span class="material-symbols-outlined">
+                        edit_note
+                        </span> 
+                    </a>
+                </td>
+             </tr>
+            
+        }
+       
+      
+   
+  </tbody>
+</table>
+<!-- Generated at CSSPortal.com -->
+

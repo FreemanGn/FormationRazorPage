@@ -1,0 +1,58 @@
+﻿@page
+@model Formation_Web_ASP.NET_Core.Pages.Restaurant.AddModel
+@{
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+
+<style>
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      label {
+        margin-bottom: 5px;
+      }
+      input, textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+
+  <body>
+    <form  asp-action="add">
+      <label asp-for="restaurant.Name"></label>
+      <input type="text" asp-for="restaurant.Name"required>
+       <span asp-validation-for="restaurant.Name" class="text-danger"></span>
+      
+      <label asp-for="restaurant.Addresse"></label>
+      <input asp-for="restaurant.Addresse" type="text" required>
+       <span asp-validation-for="restaurant.Addresse" class="text-danger"></span>
+
+      
+      <label asp-for="restaurant.Description"></label>
+      <textarea  asp-for="restaurant.Description" rows="5" required></textarea>
+       <span asp-validation-for="restaurant.Description" class="text-danger"></span>
+
+      
+      <input type="submit" value="Envoyer">
+    </form>
+  </body>
